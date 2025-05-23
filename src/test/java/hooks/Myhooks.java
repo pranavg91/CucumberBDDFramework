@@ -1,6 +1,7 @@
 package hooks;
 
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import Factory.DriverFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import utilis.CommonUtilis;
 
 public class Myhooks {
 
@@ -18,7 +20,8 @@ public class Myhooks {
 	@Before
 	public void setup() {
 
-		driver =DriverFactory.openBrowserAndApplicationURL();
+		Properties prop =CommonUtilis.loadPropertiesFile();
+		driver = DriverFactory.openBrowserAndApplicationURL(prop);
 	}
 	@After
 	public void teardown() {

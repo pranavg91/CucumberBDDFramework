@@ -1,5 +1,7 @@
 package stepdefinations;
 
+import java.util.Properties;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,20 +10,24 @@ import Factory.DriverFactory;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import utilis.CommonUtilis;
 
 public class Search {
 
 	WebDriver driver;
+	Properties prop;
 
 	@Given("User in on the home page")
 	public void user_in_on_the_home_page() {
 		driver = DriverFactory.getDriver();
+		prop = CommonUtilis.loadPropertiesFile();
 
 	}
 
 	@When("User enter exiting product into search box field")
 	public void user_enter_exiting_product_into_search_box_field() {
-		driver.findElement(By.name("search")).sendKeys("HP");
+		driver.findElement(By.name("search")).sendKeys(prop.getProperty("existingProduct"));
+		
 
 	}
 
@@ -39,7 +45,7 @@ public class Search {
 
 	@When("User enter no exiting product into search box field")
 	public void user_enter_no_exiting_product_into_search_box_field() {
-		driver.findElement(By.name("search")).sendKeys("asfdasf");
+		driver.findElement(By.name("search")).sendKeys(prop.getProperty("nonexistingProduct"));
 	}
 
 	@Then("Product message Should be displayed")

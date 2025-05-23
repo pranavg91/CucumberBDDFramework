@@ -1,5 +1,6 @@
 Feature: Register Account Functionality
 
+@Runthis
 Scenario: Verify Registering Account with Mandatory fields
 Given User navigate to Register Account Page
 When User enter below fields
@@ -15,6 +16,7 @@ And Proper details should be displayed on the Account Success page
 When User clicks on continue button on Account success page 
 Then USer should be navigate to My Account Page
 
+@Runthis
 Scenario: Verify Registering Account by filling all the fields
 Given User navigate to Register Account Page
 When User enter below fields
@@ -27,3 +29,5 @@ And user select privacy policy field
 And User clicks on Contiue button
 Then User should get logged in
 And User clicks on continue button on Account success page
+
+

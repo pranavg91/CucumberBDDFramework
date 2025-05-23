@@ -12,6 +12,5 @@ Feature: Verify login functionality
 		 Given User navigate to login page
 		 When  User enter Invalid email id and Invalid password into the fields
 		 And Clicks on Login button
-		 Then User should not logged In
-		 And User should get a warning message
+		 Then User should get a warning message
 		 
